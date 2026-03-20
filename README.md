@@ -25,18 +25,18 @@ python scripts/predict_future_uip.py \
     --model_dir results/models \
     --output_dir results/predictions
 ## train_ml_models.py
-import os
-import argparse
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.metrics import r2_score, mean_squared_error
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from xgboost import XGBRegressor
-from joblib import dump
+   import os
+   import argparse
+   import pandas as pd
+   import numpy as np
+   from sklearn.model_selection import train_test_split, GridSearchCV
+   from sklearn.metrics import r2_score, mean_squared_error
+   from sklearn.ensemble import RandomForestRegressor
+   from sklearn.neighbors import KNeighborsRegressor
+   from sklearn.pipeline import Pipeline
+   from sklearn.preprocessing import StandardScaler
+   from xgboost import XGBRegressor
+   from joblib import dump
 
 
 def main(args):
@@ -133,9 +133,7 @@ def main(args):
         os.path.join(args.importance_dir, "feature_importance.csv"),
         index=False
     )
-
-
-if __name__ == "__main__":
+ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", required=True)
     parser.add_argument("--model_dir", required=True)
@@ -145,13 +143,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
     main(args)
 ## predict_future_uip.py
-import os
-import argparse
-import pandas as pd
-from joblib import load
+   import os
+   import argparse
+   import pandas as pd
+   from joblib import load
 
 
-def main(args):
+ def main(args):
     if not os.path.exists(args.input_dir):
         raise FileNotFoundError(f"{args.input_dir} not found")
 
@@ -183,7 +181,7 @@ def main(args):
             print(f"Saved: {output_file}")
 
 
-if __name__ == "__main__":
+  if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_dir", required=True)
     parser.add_argument("--model_dir", required=True)
